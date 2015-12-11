@@ -1,0 +1,24 @@
+{
+  "name": "coffeecoder",
+  "description": "Online REPL with lessons",
+  "main": "js/app.js",
+  "authors": [
+    "Rob Wilson"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/phobos101/CoffeeCoder",
+  "moduleType": [
+    "node"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "jquery": "~2.1.4"
+  }
+}
