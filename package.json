@@ -1,0 +1,23 @@
+{
+  "name": "coffeecoder",
+  "version": "1.0.0",
+  "description": "Online REPL with lessons",
+  "main": "js/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phobos101/CoffeeCoder.git"
+  },
+  "author": "Rob Wilson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/phobos101/CoffeeCoder/issues"
+  },
+  "homepage": "https://github.com/phobos101/CoffeeCoder#readme",
+  "dependencies": {
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13"
+  }
+}
