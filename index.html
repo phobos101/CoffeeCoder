@@ -1,28 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title>CoffeeCoder</title>
-    <!-- 3rd party JS -->
-    <script src="js/codemirror.js"></script>
-    <script src="mode/javascript/javascript.js"></script>
+    <!-- CodeMirror JS-->
+    <script src="js/cm/lib/codemirror.js"></script>
+    <script src="js/cm/mode/javascript/javascript.js"></script>
+    <script src="js/cm/addons/edit/matchbrackets.js"></script>
+    <script src="js/cm/addons/edit/closebrackets.js"></script>
+    <!-- Bower JS -->
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist/css/bootstrap.min.css"></script>
     <!-- 3rd party CSS -->
     <link rel="stylesheet" href="css/codemirror.css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- CoffeeCoder CSS -->
+    <link rel="stylesheet" href="css/master.css" charset="utf-8">
   </head>
   <body>
     <div class="container">
+
       <div class="row">
         <div class="col-sm-12">
           <h1 class="text-center">Welcome to CoffeeCoder</h1><hr>
         </div>
-        <div id="codeInput" class="col-sm-12 text-center">
+      </div>
+
+      <div class="row">
+        <div id="codeInput" class="col-sm-6">
+        </div>
+        <div id="codeOutput" class="col-sm-6 center-text">
         </div>
       </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <br><h4 class="text-center"><a href="#" onclick="putOutput()">Run!</a></h4>
+        </div>
+      </div>
+
     </div>
 
+    <!-- Main JS Entry point -->
     <script src="js/app.js"></script>
   </body>
 </html>
