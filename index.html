@@ -27,36 +27,7 @@
     <script src="js/angular/angular-app.js"></script>
   </head>
   <body ng-app="CoffeeCoder">
-    <div class="container">
-
-      <div class="row">
-        <div class="col-sm-12">
-          <h1 class="text-center">Welcome to CoffeeCoder</h1><hr>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-12 lesson-notes">
-          Lesson notes in here
-        </div>
-      </div>
-      <hr>
-      <div class="row">
-        <div id="codeInput" class="col-sm-6 code-input">
-        </div>
-        <div id="codeOutput" class="col-sm-6 code-output center-text">
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-12">
-          <br><h4 class="text-center"><a href="#" onclick="runCode()">Run!</a></h4>
-        </div>
-      </div>
-
+    <div ui-view>
     </div>
-
-    <!-- Main JS Entry point -->
-    <script src="js/app.js"></script>
   </body>
 </html>
