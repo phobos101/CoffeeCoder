@@ -1,9 +1,11 @@
 .lesson-notes {
+  text-align: center;
   max-width: 98%;
   min-height: 100px;
   margin-left: 15px;
   border: 1px solid black;
   border-radius: 5px;
+  line-height: 100px;
 }
 
 .code-input {
