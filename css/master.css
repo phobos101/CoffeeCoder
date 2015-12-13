@@ -1,0 +1,11 @@
+.lesson-notes {
+  max-width: 98%;
+  min-height: 100px;
+  margin-left: 15px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.code-input {
+  border-right: 1px solid #eee;
+}

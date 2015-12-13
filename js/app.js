@@ -33,7 +33,6 @@ evalCode = function(input) {
 };
 
 writeln = function(input) {
-  debugger;
     if (!input == null) input="";
     codeOutput.innerHTML += evalCode(input);
     codeOutput.innerHTML += "<br>";
