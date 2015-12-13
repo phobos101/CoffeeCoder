@@ -5,15 +5,16 @@ var myCodeMirror = CodeMirror(codeInput, {
   lineNumbers: true,
   autoCloseBrackets: true,
   matchBrackets: true,
-  value: "(function welcome() {\n  return 'CoffeeCoder Rocks!';\n})();\n",
-  mode:  "javascript"
+  value: '( welcome = ->\n  writeln "C#{0}FF#{42-9}C0D#{9/3}R R#{0}CK#{5}!"\n)()\n',
+  mode:  "coffeescript"
 });
 
 function runCode() {
   event.preventDefault();
-  var input = myCodeMirror.getValue();
   codeOutput.textContent = "";
-  var result = evalCode(eval(input));
+  var input = myCodeMirror.getValue();
+  var js = CoffeeScript.compile(input, {bare: true});
+  var result = evalCode(eval(js));
   if (result != undefined) codeOutput.innerHTML += result;
 };
 
@@ -32,7 +33,8 @@ evalCode = function(input) {
 };
 
 writeln = function(input) {
-    if (!input) input="";
+  debugger;
+    if (!input == null) input="";
     codeOutput.innerHTML += evalCode(input);
     codeOutput.innerHTML += "<br>";
 };
