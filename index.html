@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title>CoffeeCoder</title>
+    <!-- 3rd party CSS -->
+    <link rel="stylesheet" href="css/codemirror.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- CoffeeCoder CSS -->
+    <link rel="stylesheet" href="css/master.css" charset="utf-8">
     <!-- CodeMirror JS-->
     <script src="js/cm/lib/codemirror.js"></script>
     <script src="js/cm/mode/javascript/javascript.js"></script>
@@ -14,15 +19,13 @@
     <!-- Bower JS -->
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
     <!-- CoffeeScript Compiler -->
     <script src="js/compiler/coffee-script.js"></script>
-    <!-- 3rd party CSS -->
-    <link rel="stylesheet" href="css/codemirror.css">
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <!-- CoffeeCoder CSS -->
-    <link rel="stylesheet" href="css/master.css" charset="utf-8">
+    <!-- Angular JS files -->
+    <script src="js/angular/angular-app.js"></script>
   </head>
-  <body>
+  <body ng-app="CoffeeCoder">
     <div class="container">
 
       <div class="row">
