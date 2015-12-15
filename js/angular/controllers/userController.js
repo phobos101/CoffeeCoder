@@ -2,7 +2,8 @@ angular
   .module('CoffeeCoder')
   .controller('UserController', UserController);
 
-function UserController() {
+UserController.$inject = ['User', 'TokenService'];
+function UserController(User, TokenService) {
   var self = this;
   self.user = {};
 
@@ -17,7 +18,7 @@ function UserController() {
   };
 
   self.login = function() {
-    user.login(self.user, handleLogin);
+    User.login(self.user, handleLogin);
   };
 
   self.register = function() {

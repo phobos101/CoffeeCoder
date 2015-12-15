@@ -1,4 +1,4 @@
-<div class="navbar navbar-default" role="navigation">
+<div class="navbar navbar-default" role="navigation" ng-controller="UserController as users">
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -14,35 +14,35 @@
       <ul class="nav navbar-nav">
         <li class="menu-item"><a href="#">Lessons </a></li>
         <li class="menu-item"><a href="#">Help <i class="fa fa-support"></i></a></li>
-        <li class="menu-item dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
+        <li ng-show="users.isLoggedIn()" class="menu-item dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li class="menu-item dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Manage Subscriptions </a></li>
             <li class="menu-item dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Create a Lesson </a></li>
             <li class="menu-item dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Edit Account <i class="fa fa-wrench"></i></a></li>
             <li class="divider"></li>
-            <li class="menu-item dropdown"><i class="fa"></i><a href="#" class="dropdown-toggle" data-toggle="dropdown">Logout <i class="fa fa-power-off padding-left-ten-px red-text"></i></a></li>
+            <li class="menu-item dropdown"><a ng-click="users.logout()" class="dropdown-toggle" data-toggle="dropdown">Logout </a></li>
           </ul>
         </li>
       </ul>
       <!-- DROPDOWN LOGIN STARTS HERE  -->
-      <ul id="signInDropdown" class="nav navbar-nav navbar-right">
+      <ul ng-hide="users.isLoggedIn()" id="signInDropdown" class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <button type="button" id="dropdownMenu1" data-toggle="dropdown" class="btn btn-info navbar-btn dropdown-toggle"><i class="glyphicon glyphicon-user"></i> Login
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu">
             <li style="width: 250px;">
-              <form class="navbar-form form" role="form">
+              <form class="navbar-form form" role="form" ng-submit="users.login()">
                 <div class="form-group">
                   <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
-                    <input id="emailInput" placeholder="email address" class="form-control" type="email" required>
+                    <input id="emailInput" placeholder="email address" class="form-control" type="email" ng-model="users.user.email" required>
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock color-blue"></i></span>
-                    <input id="passwordInput" placeholder="password" class="form-control" type="password" required>
+                    <input id="passwordInput" placeholder="password" class="form-control" type="password" ng-model="users.user.password" required>
                   </div>
                 </div>
                 <div class="form-group">
