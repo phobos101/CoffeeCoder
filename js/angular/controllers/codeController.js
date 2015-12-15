@@ -4,5 +4,5 @@ angular
 
 function CodeController() {
   var self = this;
-  
+
 };
