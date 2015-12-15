@@ -5,9 +5,20 @@
   margin-left: 15px;
   border: 1px solid black;
   border-radius: 5px;
-  line-height: 100px;
 }
 
 .code-input {
   border-right: 1px solid #eee;
+}
+
+.padding-left-ten-px { padding-left: 10px; }
+.red-text { color: #FF0000; }
+.navbar-right{padding-right: 25px;}
+.form-group{padding: 10px;}
+.form-panel-width { width: 220px; }
+.color-blue {color: #0080c5;}
+.color-red {color: #FF0000;}
+
+@media screen and (min-width: 30em ) {
+  .form-panel-width { width: 100%; }
 }
