@@ -6,9 +6,13 @@ angular
 function MainConfig($stateProvider, $urlRouterProvider, $httpProvider) {
   $httpProvider.interceptors.push('authInterceptor');
   $stateProvider
-    .state('code', {
+    .state('landing', {
       url: '/',
-      templateUrl: '_code.html'
+      templateUrl: 'views/partials/_landing.html'
+    })
+    .state('code', {
+      url: '/code',
+      templateUrl: 'views/partials/_code.html'
     });
   $urlRouterProvider.otherwise('/');
 };
