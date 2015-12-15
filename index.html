@@ -21,13 +21,17 @@
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+    <script src="bower_components/angular-jwt/dist/angular-jwt.min.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
     <!-- CoffeeScript Compiler -->
     <script src="js/compiler/coffee-script.js"></script>
     <!-- Angular JS files -->
-    <script src="https://cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js"></script>
     <script src="js/angular/angular-app.js"></script>
+    <script src="js/angular/services/tokenService.js"></script>
+    <script src="js/angular/services/authInterceptor.js"></script>
+    <script src="js/angular/models/user.js"></script>
     <script src="js/angular/controllers/codeController.js"></script>
+    <script src="js/angular/controllers/userController.js"></script>
   </head>
   <body ng-app="CoffeeCoder">
     <div ui-view>
