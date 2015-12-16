@@ -2,17 +2,18 @@ angular
   .module('CoffeeCoder')
   .controller('UserController', UserController);
 
-UserController.$inject = ['User', 'TokenService', '$http'];
-function UserController(User, TokenService, $http) {
+UserController.$inject = ['User', 'TokenService', '$http', '$state'];
+function UserController(User, TokenService, $http, $state) {
   var self = this;
-  self.user = {};
+  self.userId = TokenService.decodeToken() || undefined;
+  self.user = self.user || {};
 
   function handleLogin(res) {
     var token = res.token ? res.token : null;
 
     if (token) {
-      self.getUsers();
-      self.user = TokenService.decodeToken();
+      self.userId = TokenService.decodeToken();
+      self.getUser();
     };
     self.message = res.message;
   };
@@ -31,12 +32,16 @@ function UserController(User, TokenService, $http) {
 
   self.logout = function() {
     TokenService.removeToken();
-    self.all = [];
+    $state.go('landing');
     self.user = {};
   };
 
-  self.getUsers = function() {
-    self.all = User.query;
+  self.getUser = function() {
+    $http
+      .get('http://localhost:3000/users/' + self.userId)
+      .then(function(res) {
+        self.user = res.data.user;
+      });
   };
 
   self.isLoggedIn = function() {
@@ -49,15 +54,15 @@ function UserController(User, TokenService, $http) {
 
   self.updateUser = function() {
     $http
-      .put('http://localhost:3000/users/' + self.user._id, self.user)
+      .put('http://localhost:3000/users/' + self.userId, self.user)
       .then(function(response) {
         self.toggleEditForm();
       });
   };
 
   if (self.isLoggedIn()) {
-    self.getUsers();
-    self.user = TokenService.decodeToken();
+    self.userId = TokenService.decodeToken();
+    self.getUser();
   };
 
   return self;

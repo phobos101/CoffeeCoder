@@ -18,6 +18,10 @@ function MainConfig($stateProvider, $urlRouterProvider, $httpProvider) {
       url: '/create',
       templateUrl: 'views/partials/_createLesson.html'
     })
+    .state('createdLessons', {
+      url: '/created_lessons',
+      templateUrl: 'views/partials/_myLessons.html'
+    })
     .state('lessons', {
       url: '/lessons',
       templateUrl: 'views/partials/_lessons.html'

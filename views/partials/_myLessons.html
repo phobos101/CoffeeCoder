@@ -63,42 +63,20 @@
   </div>
 </div>
 
-<div class="container" ng-controller="UserController as users">
+<div class="container" ng-controller="LessonsController as lessons">
 
   <div class="row">
-
-    <div class="col-sm-12 text-center">
-      <form class="form-horizontal" id="edit-user" ng-submit="users.updateUser()">
-
-        <div class="form-group">
-          <div class="col-sm-6 col-sm-offset-3">
-            <label>Email: </label>
-            <input type="text" name='edit-email' class="form-control" id="edit-email" ng-model="users.user.local.email">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <div class="col-sm-6 col-sm-offset-3 text-center">
-            <input type="submit" value='Save' id="submit" class="btn btn-default">
-          </div>
-        </div>
-
-        <hr>
-      </form>
-    </div>
-
     <div class="col-sm-12">
-      <h2 class="text-center">Welcome back, {{users.user.local.email}}</h2>
-      <h2 class="text-center" ng-if="users.user.points"><small>You have {{users.user.points}} points!</small></h2><br>
-      <h3 class="text-center">Manage your lessons below</h3>
-    </div>
-    <div class="col-sm-6 col-sm-offset-3">
-      <br><a class="list-group-item">Lessons Subscribed: <span class="badge">{{users.user.lessonsSubbed.length}}</span></a>
-      <a class="list-group-item">Lessons Completed: <span class="badge">{{users.user.lessonsCompleted.length}}</span></a>
-      <a class="list-group-item" ui-sref="createdLessons">Lessons Created: <span class="badge">{{users.user.lessonsCreated.length}}</span></a>
-    </div>
-    <div class="col-sm-12 text-center">
-      <br><a ng-click="users.toggleEditForm()">Edit Profile</a>
+
+      <div class="list-group text-center" ng-repeat='lesson in lessons.createdLessons'>
+        <a href="#" ng-click="lessons.selectLesson(lesson)" class="list-group-item">
+          <h2>{{lesson.title}}</h2>
+          <p class="lighter-text">{{lesson.summary}}</p>
+          <p>Difficulty: <span class="badge badge-diff-{{lesson.difficulty}}">{{lesson.difficulty}}</span></p>
+        </a>
+      </div>
+
     </div>
   </div>
+
 </div>
