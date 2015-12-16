@@ -64,7 +64,7 @@
 <div class="container" ng-controller="CodeController as code">
 
   <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-6" ng-if="code.lesson.title">
       <div class="text-center">
         <h3>{{code.lesson.title}}</h1>
         <p>Difficulty: <span class="badge">{{code.lesson.difficulty}}</span></p><br>

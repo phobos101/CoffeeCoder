@@ -5,7 +5,7 @@ var myCodeMirror = CodeMirror(codeInput, {
   lineNumbers: true,
   autoCloseBrackets: true,
   matchBrackets: true,
-  value: 'Welcome to CoffeeCoder\n  Write your code here, then click "Run!"',
+  value: '#Your code here\n',
   mode: 'coffeescript'
 });
 
