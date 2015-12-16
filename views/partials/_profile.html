@@ -61,38 +61,17 @@
   </div>
 </div>
 
-<div class="container" ng-controller="CodeController as code">
-
-  <div class="row">
-    <div class="col-sm-6" ng-if="code.lesson.title">
-      <div class="text-center">
-        <h3>{{code.lesson.title}}</h1>
-        <p>Difficulty: <span class="badge">{{code.lesson.difficulty}}</span></p><br>
-      </div>
-      <div class="lesson-notes">
-        {{code.lesson.content}}
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <div id="codeInput" class="code-input"></div>
-    </div>
-  </div>
-  <hr>
-
+<div class="container" ng-controller="UserController as users">
   <div class="row">
     <div class="col-sm-12">
-      <div id="codeOutput" class="code-output"></div>
+      <h2 class="text-center">Welcome back, {{users.user.local.email}}</h2><br>
+    </div>
+    <div class="col-sm-6 col-sm-offset-3">
+      <ul class="list-group">
+        <li class="list-group-item">Lessons Subscribed: <span class="badge">{{users.user.lessonsSubbed.length}}</span></li>
+        <li class="list-group-item">Lessons Completed: <span class="badge">{{users.user.lessonsCompleted.length}}</span></li>
+        <li class="list-group-item">Lessons Created: <span class="badge">{{users.user.lessonsCreated.length}}</span></li>
+      </ul>
     </div>
   </div>
-
-  <div class="row">
-    <div class="col-sm-12">
-      <br>
-      <h4 class="text-center"><a href="#" onclick="runCode()">Run!</a></h4>
-    </div>
-  </div>
-
 </div>
-
-<!-- Load REPL -->
-<script src="js/repl.js"></script>

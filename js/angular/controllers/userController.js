@@ -17,6 +17,10 @@ function UserController(User, TokenService) {
     self.message = res.message;
   };
 
+  self.facebookAuth = function() {
+    User.facebook(null, handleLogin);
+  };
+
   self.login = function() {
     User.login(self.user, handleLogin);
   };
@@ -42,6 +46,7 @@ function UserController(User, TokenService) {
   if (self.isLoggedIn()) {
     self.getUsers();
     self.user = TokenService.decodeToken();
+    console.log('User is ' + self.user.local.email);
   };
 
   return self;

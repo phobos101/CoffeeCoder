@@ -10,6 +10,10 @@ function MainConfig($stateProvider, $urlRouterProvider, $httpProvider) {
       url: '/',
       templateUrl: 'views/partials/_landing.html'
     })
+    .state('profile', {
+      url: '/profile',
+      templateUrl: 'views/partials/_profile.html'
+    })
     .state('lessons', {
       url: '/lessons',
       templateUrl: 'views/partials/_lessons.html'

@@ -16,6 +16,10 @@ function User($resource, API) {
       'register': {
         url: API + 'register',
         method: 'POST'
+      },
+      'facebook': {
+        url: API + 'auth/facebook',
+        method: 'GET'
       }
     }
   );

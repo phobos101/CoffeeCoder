@@ -14,11 +14,11 @@
       <ul class="nav navbar-nav">
         <li class="menu-item"><a ui-sref="lessons">Lessons </a></li>
         <li class="menu-item"><a href="#">Help <i class="fa fa-support"></i></a></li>
-        <li ng-show="users.isLoggedIn()" class="menu-item dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
+        <li ng-show="users.isLoggedIn()" class="menu-item dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li class="menu-item dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Manage Subscriptions </a></li>
             <li class="menu-item dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Create a Lesson </a></li>
-            <li class="menu-item dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Edit Account <i class="fa fa-wrench"></i></a></li>
+            <li class="menu-item dropdown"><a ui-sref="profile" class="dropdown-toggle" data-toggle="dropdown">My Profile <i class="fa fa-wrench"></i></a></li>
             <li class="divider"></li>
             <li class="menu-item dropdown"><a ng-click="users.logout()" class="dropdown-toggle" data-toggle="dropdown">Logout </a></li>
           </ul>
