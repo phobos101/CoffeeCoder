@@ -1,6 +1,6 @@
 angular
   .module('CoffeeCoder', ['ui.router', 'ngResource', 'angular-jwt'])
-  .constant('API', 'http://localhost:3000/')
+  .constant('API', 'https://coffee-coder-api.herokuapp.com/')
   .config(MainConfig);
 
 function MainConfig($stateProvider, $urlRouterProvider, $httpProvider) {

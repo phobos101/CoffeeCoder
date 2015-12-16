@@ -48,7 +48,7 @@ function LessonsController($http, $state, TokenService) {
         self.user.points += 10;
         console.log(self.user);
         $http
-          .put('http://localhost:3000/users/' + self.userId, self.user)
+          .put('https://coffee-coder-api.herokuapp.com/users/' + self.userId, self.user)
           .then(function(res) {
             console.log(res);
           });
@@ -59,7 +59,7 @@ function LessonsController($http, $state, TokenService) {
   self.removeLesson = function(lesson) {
     event.preventDefault();
     $http
-      .delete('http://localhost:3000/lessons/' + lesson._id)
+      .delete('https://coffee-coder-api.herokuapp.com/lessons/' + lesson._id)
       .then(function(res) {
         console.log(res.data.message);
         var index = self.all.indexOf(lesson);
@@ -68,8 +68,9 @@ function LessonsController($http, $state, TokenService) {
         self.createdLessons.splice(index, 1);
         var index = self.user.lessonsCreated.indexOf(lesson._id);
         self.user.lessonsCreated.splice(index, 1);
+        self.user.points -= 10;
         $http
-          .put('http://localhost:3000/users/' + self.userId, self.user)
+          .put('https://coffee-coder-api.herokuapp.com/users/' + self.userId, self.user)
           .then(function(res) {
           });
       });
@@ -83,7 +84,7 @@ function LessonsController($http, $state, TokenService) {
 
   self.updateLesson = function() {
     $http
-      .put('http://localhost:3000/lessons/' + self.lessonToEdit._id, self.lessonToEdit)
+      .put('https://coffee-coder-api.herokuapp.com/lessons/' + self.lessonToEdit._id, self.lessonToEdit)
       .then(function(response) {
         self.toggleEditForm();
       });

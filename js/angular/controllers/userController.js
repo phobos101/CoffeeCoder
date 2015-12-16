@@ -38,7 +38,7 @@ function UserController(User, TokenService, $http, $state) {
 
   self.getUser = function() {
     $http
-      .get('http://localhost:3000/users/' + self.userId)
+      .get('https://coffee-coder-api.herokuapp.com/users/' + self.userId)
       .then(function(res) {
         self.user = res.data.user;
       });
@@ -54,7 +54,7 @@ function UserController(User, TokenService, $http, $state) {
 
   self.updateUser = function() {
     $http
-      .put('http://localhost:3000/users/' + self.userId, self.user)
+      .put('https://coffee-coder-api.herokuapp.com/users/' + self.userId, self.user)
       .then(function(response) {
         self.toggleEditForm();
       });
