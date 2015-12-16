@@ -187,6 +187,10 @@ p.copyright {
   padding-top: 10px;
 }
 
+#edit-user {
+  display: none;
+}
+
 .navbar-right{padding-right: 25px;}
 .form-group{padding: 10px;}
 .form-panel-width { width: 220px; }

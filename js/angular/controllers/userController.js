@@ -2,8 +2,8 @@ angular
   .module('CoffeeCoder')
   .controller('UserController', UserController);
 
-UserController.$inject = ['User', 'TokenService'];
-function UserController(User, TokenService) {
+UserController.$inject = ['User', 'TokenService', '$http'];
+function UserController(User, TokenService, $http) {
   var self = this;
   self.user = {};
 
@@ -43,10 +43,22 @@ function UserController(User, TokenService) {
     return !!TokenService.getToken();
   };
 
+  self.toggleEditForm = function() {
+    console.log('clicked')
+    $('form#edit-user').slideToggle('slow');
+  };
+
+  self.updateUser = function() {
+    $http
+      .put('http://localhost:3000/users/' + self.user._id, self.user)
+      .then(function(response) {
+        self.toggleEditForm();
+      });
+  };
+
   if (self.isLoggedIn()) {
     self.getUsers();
     self.user = TokenService.decodeToken();
-    console.log('User is ' + self.user.local.email);
   };
 
   return self;

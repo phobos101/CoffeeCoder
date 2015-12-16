@@ -14,6 +14,8 @@
       <ul class="nav navbar-nav">
         <li class="menu-item"><a ui-sref="lessons">Lessons </a></li>
         <li class="menu-item"><a href="#">Help <i class="fa fa-support"></i></a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
         <li ng-show="users.isLoggedIn()" class="menu-item dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li class="menu-item dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Manage Subscriptions </a></li>
@@ -63,6 +65,12 @@
 
 <div class="container" ng-controller="UserController as users">
   <div class="row">
+    <div class="col-sm-12 text-center">
+      <form id="edit-user" ng-submit="users.updateUser()">
+        <input type="text" name='edit-email' id="edit-email" ng-model="users.user.local.email">
+        <input type="submit" value='Save' id="submit">
+      </form>
+    </div>
     <div class="col-sm-12">
       <h2 class="text-center">Welcome back, {{users.user.local.email}}</h2><br>
     </div>
@@ -72,6 +80,9 @@
         <li class="list-group-item">Lessons Completed: <span class="badge">{{users.user.lessonsCompleted.length}}</span></li>
         <li class="list-group-item">Lessons Created: <span class="badge">{{users.user.lessonsCreated.length}}</span></li>
       </ul>
+    </div>
+    <div class="col-sm-12 text-center">
+      <a ng-click="users.toggleEditForm()">Edit Profile</a>
     </div>
   </div>
 </div>
