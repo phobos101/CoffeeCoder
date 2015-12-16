@@ -18,11 +18,11 @@ function LessonsController($http, $state, TokenService) {
   function getUser() {
     if (self.userId) {
       $http
-        .get('http://localhost:3000/users/' + self.userId)
+        .get('https://coffee-coder-api.herokuapp.com/users/' + self.userId)
         .then(function(res) {
           self.user = res.data.user;
           $http
-            .get('http://localhost:3000/lessons')
+            .get('https://coffee-coder-api.herokuapp.com/lessons')
             .then(function(res) {
               self.all = res.data.lessons;
               for (var i in res.data.lessons) {
@@ -41,7 +41,7 @@ function LessonsController($http, $state, TokenService) {
 
   self.createLesson = function() {
     $http
-      .post('http://localhost:3000/lessons', self.newLesson)
+      .post('https://coffee-coder-api.herokuapp.com/lessons', self.newLesson)
       .then(function(res) {
         self.all.push(self.newLesson);
         self.user.lessonsCreated.push(res.data.lesson._id);
