@@ -187,7 +187,7 @@ p.copyright {
   padding-top: 10px;
 }
 
-#edit-user {
+#edit-user, #edit-lesson {
   display: none;
 }
 

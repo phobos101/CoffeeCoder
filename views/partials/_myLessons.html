@@ -65,6 +65,63 @@
 
 <div class="container" ng-controller="LessonsController as lessons">
 
+  <form class="form-horizontal" id="edit-lesson" ng-submit="lessons.updateLesson()">
+
+    <div class="form-group">
+      <div class="col-sm-6 col-sm-offset-3">
+        <label>Title:</label>
+        <input type="text" name='lesson-title' class="form-control" id="lesson-title" ng-model="lessons.lessonToEdit.title" placeholder="Lesson Title">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-6 col-sm-offset-3">
+        <label>Summary:</label>
+        <input type="text" name='lesson-summary' class="form-control" id="lesson-summary" ng-model="lessons.lessonToEdit.summary" placeholder="Lesson Summary (A brief overview of the lesson)">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-6 col-sm-offset-3">
+        <label>Content:</label>
+        <textarea name='lesson-content' class="form-control" id="lesson-content" ng-model="lessons.lessonToEdit.content" placeholder="Lesson Content" rows="5"></textarea>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-6 col-sm-offset-3">
+        <label>Expected result:</label>
+        <input type="text" name='lesson-expectedResult' class="form-control" id="lesson-expectedResult" ng-model="lessons.lessonToEdit.expectedResult" placeholder="Expected Result (from user input)">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-6 col-sm-offset-3">
+        <label>Difficulty:</label>
+        <select name='lesson-difficulty' class="form-control" id="lesson-difficulty" ng-model="lessons.lessonToEdit.difficulty">
+          <option selected disabled>Lesson Difficulty</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
+          <option>10</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-6 col-sm-offset-3 text-center">
+        <button type="submit" class="btn btn-default">Update</button>
+      </div>
+    </div>
+
+  </form>
+
   <div class="row">
     <div class="col-sm-12">
 
@@ -73,6 +130,7 @@
           <h2>{{lesson.title}}</h2>
           <p class="lighter-text">{{lesson.summary}}</p>
           <p>Difficulty: <span class="badge badge-diff-{{lesson.difficulty}}">{{lesson.difficulty}}</span></p>
+          <br><a ng-click="lessons.removeLesson(lesson)" class='delete'>Delete</a> | <a ng-click="lessons.editLesson(lesson)" class='edit'>Edit</a>
         </a>
       </div>
 

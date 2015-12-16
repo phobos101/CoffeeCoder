@@ -12,6 +12,7 @@ function LessonsController($http, $state, TokenService) {
   self.userId = TokenService.decodeToken() || undefined;
   self.user = getUser();
   self.selectLesson = selectLesson;
+  self.lessonToEdit = {};
   self.gotoLesson = gotoLesson;
 
   function getUser() {
@@ -51,6 +52,29 @@ function LessonsController($http, $state, TokenService) {
           });
         $state.go('lessons');
       });
+  };
+
+  self.removeLesson = function(lesson) {
+    event.preventDefault();
+    console.log('clicked remove');
+  };
+
+  self.editLesson = function(lesson) {
+    event.preventDefault();
+    self.toggleEditForm();
+    self.lessonToEdit = lesson;
+  };
+
+  self.updateLesson = function() {
+    $http
+      .put('http://localhost:3000/lessons/' + self.lessonToEdit._id, self.lessonToEdit)
+      .then(function(response) {
+        self.toggleEditForm();
+      });
+  };
+
+  self.toggleEditForm = function() {
+    $('form#edit-lesson').slideToggle('slow');
   };
 
   function selectLesson(lesson) {
