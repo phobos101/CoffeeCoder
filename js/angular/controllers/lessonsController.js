@@ -50,13 +50,27 @@ function LessonsController($http, $state, TokenService) {
           .then(function(res) {
             console.log(res);
           });
-        $state.go('lessons');
+        $state.go('createdLessons');
       });
   };
 
   self.removeLesson = function(lesson) {
     event.preventDefault();
-    console.log('clicked remove');
+    $http
+      .delete('http://localhost:3000/lessons/' + lesson._id)
+      .then(function(res) {
+        console.log(res.data.message);
+        var index = self.all.indexOf(lesson);
+        self.all.splice(index, 1);
+        var index = self.createdLessons.indexOf(lesson);
+        self.createdLessons.splice(index, 1);
+        var index = self.user.lessonsCreated.indexOf(lesson._id);
+        self.user.lessonsCreated.splice(index, 1);
+        $http
+          .put('http://localhost:3000/users/' + self.userId, self.user)
+          .then(function(res) {
+          });
+      });
   };
 
   self.editLesson = function(lesson) {
