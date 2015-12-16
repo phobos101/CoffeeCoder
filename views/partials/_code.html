@@ -62,22 +62,26 @@
 </div>
 
 <div class="container" ng-controller="CodeController as code">
+
   <div class="row">
-    <div class="col-sm-12 text-center">
-      <h3>{{code.lesson.content}}</h1>
-      <p>Difficulty: <span class="badge">{{code.lesson.difficulty}}</span></p><br>
+    <div class="col-sm-6">
+      <div class="text-center">
+        <h3>{{code.lesson.title}}</h1>
+        <p>Difficulty: <span class="badge">{{code.lesson.difficulty}}</span></p><br>
+      </div>
+      <div class="lesson-notes">
+        {{code.lesson.content}}
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12 lesson-notes">
-      {{code.lesson.content}}
+    <div class="col-sm-6">
+      <div id="codeInput" class="code-input"></div>
     </div>
   </div>
   <hr>
+
   <div class="row">
-    <div id="codeInput" class="col-sm-6 code-input">
-    </div>
-    <div id="codeOutput" class="col-sm-6 code-output center-text">
+    <div class="col-sm-12">
+      <div id="codeOutput" class="code-output"></div>
     </div>
   </div>
 
@@ -87,6 +91,7 @@
       <h4 class="text-center"><a href="#" onclick="runCode()">Run!</a></h4>
     </div>
   </div>
+
 </div>
 
 <!-- Load REPL -->

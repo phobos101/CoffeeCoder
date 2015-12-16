@@ -8,7 +8,6 @@ function LessonsController($http, $state) {
 
   self.all = [];
   self.newLesson = {};
-  self.selectedLesson = {};
   self.selectLesson = selectLesson;
   self.gotoLesson = gotoLesson;
 
@@ -22,12 +21,10 @@ function LessonsController($http, $state) {
 
   function selectLesson(lesson) {
     event.preventDefault();
-    self.selectedLesson = lesson._id;
     gotoLesson(lesson);
   };
 
   function gotoLesson(lesson) {
-    console.log('selected lesson is ' + lesson._id);
     $state.go('code', {lesson: lesson});
   };
 

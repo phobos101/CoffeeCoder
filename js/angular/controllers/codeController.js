@@ -7,5 +7,6 @@ function CodeController($stateParams) {
 
   var self = this;
   self.lesson = $stateParams.lesson;
+  console.log('lesson is ' + self.lesson);
 
 };

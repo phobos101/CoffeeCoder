@@ -5,13 +5,13 @@ var myCodeMirror = CodeMirror(codeInput, {
   lineNumbers: true,
   autoCloseBrackets: true,
   matchBrackets: true,
-  value: '( welcome = ->\n  writeln "C#{0}FF#{42-9}C0D#{9/3}R R#{0}CK#{5}!"\n)()\n',
-  mode:  "coffeescript"
+  value: 'Welcome to CoffeeCoder\n  Write your code here, then click "Run!"',
+  mode: 'coffeescript'
 });
 
 function runCode() {
   event.preventDefault();
-  codeOutput.textContent = "";
+  codeOutput.textContent = '';
   var input = myCodeMirror.getValue();
   var js = CoffeeScript.compile(input, {bare: true});
   var result = evalCode(eval(js));
@@ -33,7 +33,7 @@ evalCode = function(input) {
 };
 
 writeln = function(input) {
-    if (!input == null) input="";
+    if (!input == null) input='';
     codeOutput.innerHTML += evalCode(input);
     codeOutput.innerHTML += "<br>";
 };

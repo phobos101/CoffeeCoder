@@ -175,12 +175,12 @@ p.copyright {
   border-radius: 5px;
 }
 
-.code-input {
-  border-right: 1px solid #eee;
-}
-
 .code-input, .code-output, .lesson-notes, .lighter-text {
   font-weight: lighter;
+}
+
+.code-output {
+  text-align: center;
 }
 
 .lesson-notes {
