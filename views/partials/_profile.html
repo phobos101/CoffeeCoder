@@ -19,7 +19,7 @@
         <li ng-show="users.isLoggedIn()" class="menu-item dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li class="menu-item dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Manage Subscriptions </a></li>
-            <li class="menu-item dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Create a Lesson </a></li>
+            <li class="menu-item dropdown"><a ui-sref="create" class="dropdown-toggle" data-toggle="dropdown">Create a Lesson </a></li>
             <li class="menu-item dropdown"><a ui-sref="profile" class="dropdown-toggle" data-toggle="dropdown">My Profile <i class="fa fa-wrench"></i></a></li>
             <li class="divider"></li>
             <li class="menu-item dropdown"><a ng-click="users.logout()" class="dropdown-toggle" data-toggle="dropdown">Logout </a></li>

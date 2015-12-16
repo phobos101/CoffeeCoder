@@ -191,11 +191,26 @@ p.copyright {
   display: none;
 }
 
+.badge-diff-1 {background-color: #398439;}
+.badge-diff-2 {background-color: #588f2e;}
+.badge-diff-3 {background-color: #768f2e;}
+.badge-diff-4 {background-color: #8f8e2e;}
+.badge-diff-5 {background-color: #a38e1f;}
+.badge-diff-6 {background-color: #c9af20;}
+.badge-diff-7 {background-color: #c99020;}
+.badge-diff-8 {background-color: #c97720;}
+.badge-diff-9 {background-color: #c95820;}
+.badge-diff-10 {background-color: #cb1e1e;}
+
 .navbar-right{padding-right: 25px;}
 .form-group{padding: 10px;}
 .form-panel-width { width: 220px; }
 .color-blue {color: #0080c5;}
 .color-red {color: #FF0000;}
+
+input[placeholder], textarea[placeholder] {
+  font-weight: lighter;
+}
 
 @media screen and (min-width: 30em ) {
   .form-panel-width { width: 100%; }

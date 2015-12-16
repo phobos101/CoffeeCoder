@@ -14,6 +14,10 @@ function MainConfig($stateProvider, $urlRouterProvider, $httpProvider) {
       url: '/profile',
       templateUrl: 'views/partials/_profile.html'
     })
+    .state('create', {
+      url: '/create',
+      templateUrl: 'views/partials/_createLesson.html'
+    })
     .state('lessons', {
       url: '/lessons',
       templateUrl: 'views/partials/_lessons.html'

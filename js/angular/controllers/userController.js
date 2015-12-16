@@ -44,7 +44,6 @@ function UserController(User, TokenService, $http) {
   };
 
   self.toggleEditForm = function() {
-    console.log('clicked')
     $('form#edit-user').slideToggle('slow');
   };
 

@@ -19,7 +19,7 @@
         <li ng-show="users.isLoggedIn()" class="menu-item dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li class="menu-item dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Manage Subscriptions </a></li>
-            <li class="menu-item dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Create a Lesson </a></li>
+            <li class="menu-item dropdown"><a ui-sref="create" class="dropdown-toggle" data-toggle="dropdown">Create a Lesson </a></li>
             <li class="menu-item dropdown"><a ui-sref="profile" class="dropdown-toggle" data-toggle="dropdown">My Profile <i class="fa fa-wrench"></i></a></li>
             <li class="divider"></li>
             <li class="menu-item dropdown"><a ng-click="users.logout()" class="dropdown-toggle" data-toggle="dropdown">Logout </a></li>
@@ -69,11 +69,16 @@
     <div class="col-sm-6" ng-if="code.lesson.title">
       <div class="text-center">
         <h3>{{code.lesson.title}}</h1>
-        <p>Difficulty: <span class="badge">{{code.lesson.difficulty}}</span></p><br>
+        <p>Difficulty: <span class="badge badge-diff-{{code.lesson.difficulty}}">{{code.lesson.difficulty}}</span></p><br>
       </div>
-      <div class="lesson-notes">
+      <div class="panel panel-default">
+        <div class="panel-body lighter-text">
+          {{code.lesson.content}}
+        </div>
+      </div>
+      <!-- <div class="lesson-notes">
         {{code.lesson.content}}
-      </div>
+      </div> -->
     </div>
     <div class="col-sm-6">
       <div id="codeInput" class="code-input"></div>
@@ -83,7 +88,12 @@
 
   <div class="row">
     <div class="col-sm-12">
-      <div id="codeOutput" class="code-output"></div>
+      <div class="panel panel-default">
+        <div class="panel-heading text-center">Output</div>
+        <div class="panel-body">
+          <div id="codeOutput" class="code-output"></div>
+        </div>
+      </div>
     </div>
   </div>
 
