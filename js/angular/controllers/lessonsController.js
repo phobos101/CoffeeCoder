@@ -19,6 +19,15 @@ function LessonsController($http, $state) {
       });
   })();
 
+  self.createLesson = function() {
+    $http
+      .post('http://localhost:3000/lessons', self.newLesson)
+      .then(function(response) {
+        self.all.push(self.newLesson);
+        $state.go('lessons');
+      });
+  };
+
   function selectLesson(lesson) {
     event.preventDefault();
     gotoLesson(lesson);

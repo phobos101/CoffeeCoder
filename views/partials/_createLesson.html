@@ -70,7 +70,7 @@
     </div>
   </div>
 
-  <form class="form-horizontal">
+  <form class="form-horizontal" ng-submit="lessons.createLesson()">
 
     <div class="form-group">
       <div class="col-sm-6 col-sm-offset-3">
@@ -87,6 +87,12 @@
     <div class="form-group">
       <div class="col-sm-6 col-sm-offset-3">
         <textarea name='lesson-content' class="form-control" id="lesson-content" ng-model="lessons.newLesson.content" placeholder="Lesson Content" rows="5"></textarea>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-6 col-sm-offset-3">
+        <input type="text" name='lesson-expectedResult' class="form-control" id="lesson-expectedResult" ng-model="lessons.newLesson.expectedResult" placeholder="Expected Result (from user input)">
       </div>
     </div>
 
