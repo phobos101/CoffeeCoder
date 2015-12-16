@@ -212,6 +212,10 @@ input[placeholder], textarea[placeholder] {
   font-weight: lighter;
 }
 
+.empty {
+  margin-top: 100px;
+}
+
 @media screen and (min-width: 30em ) {
   .form-panel-width { width: 100%; }
 }

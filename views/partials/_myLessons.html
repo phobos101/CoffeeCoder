@@ -127,7 +127,8 @@
     <div class="col-sm-12">
 
       <div ng-hide="lessons.createdLessons[0]">
-        <h1 class="text-center">Nothing here!</h1>
+        <h1 class="text-center empty">Nothing here!</h1>
+        <br><h3 class="text-center"><a ui-sref="create" class="dropdown-toggle" data-toggle="dropdown">Create a Lesson <i class="fa fa-university"></i></a></h3>
       </div>
 
       <div class="list-group text-center" ng-repeat='lesson in lessons.createdLessons'>

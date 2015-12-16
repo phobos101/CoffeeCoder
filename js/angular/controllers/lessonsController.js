@@ -45,6 +45,8 @@ function LessonsController($http, $state, TokenService) {
       .then(function(res) {
         self.all.push(self.newLesson);
         self.user.lessonsCreated.push(res.data.lesson._id);
+        self.user.points += 10;
+        console.log(self.user);
         $http
           .put('http://localhost:3000/users/' + self.userId, self.user)
           .then(function(res) {
