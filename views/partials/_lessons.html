@@ -61,4 +61,20 @@
   </div>
 </div>
 
-All lessons here
+<div class="container" ng-controller="LessonsController as lessons">
+
+  <div class="row">
+    <div class="col-sm-12">
+
+      <div class="list-group text-center" ng-repeat='lesson in lessons.all'>
+        <a href="#" ng-click="lessons.selectLesson(lesson)" class="list-group-item">
+          <h2>{{lesson.title}}</h2>
+          <p class="lighter-text">{{lesson.content}}</p>
+          <p>Difficulty: <span class="badge">{{lesson.difficulty}}</span></p>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+</div>

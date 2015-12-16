@@ -179,8 +179,12 @@ p.copyright {
   border-right: 1px solid #eee;
 }
 
-.code-input, .code-output, .lesson-notes {
+.code-input, .code-output, .lesson-notes, .lighter-text {
   font-weight: lighter;
+}
+
+.lesson-notes {
+  padding-top: 10px;
 }
 
 .navbar-right{padding-right: 25px;}

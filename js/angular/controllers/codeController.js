@@ -2,7 +2,10 @@ angular
   .module('CoffeeCoder')
   .controller('CodeController', CodeController);
 
-function CodeController() {
+CodeController.$inject = ['$stateParams'];
+function CodeController($stateParams) {
+
   var self = this;
+  self.lesson = $stateParams.lesson;
 
 };

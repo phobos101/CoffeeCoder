@@ -16,7 +16,10 @@ function MainConfig($stateProvider, $urlRouterProvider, $httpProvider) {
     })
     .state('code', {
       url: '/code',
-      templateUrl: 'views/partials/_code.html'
+      templateUrl: 'views/partials/_code.html',
+      params: {
+        lesson: {}
+      }
     });
   $urlRouterProvider.otherwise('/');
 };

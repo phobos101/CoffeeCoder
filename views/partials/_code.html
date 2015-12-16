@@ -62,10 +62,15 @@
 </div>
 
 <div class="container" ng-controller="CodeController as code">
-
+  <div class="row">
+    <div class="col-sm-12 text-center">
+      <h3>{{code.lesson.content}}</h1>
+      <p>Difficulty: <span class="badge">{{code.lesson.difficulty}}</span></p><br>
+    </div>
+  </div>
   <div class="row">
     <div class="col-sm-12 lesson-notes">
-      1. Write an immediatly invoked functional expression that prints "C0FF33C0D3R R0CK5!" to the screen.
+      {{code.lesson.content}}
     </div>
   </div>
   <hr>
@@ -85,4 +90,4 @@
 </div>
 
 <!-- Load REPL -->
-<script src="js/app.js"></script>
+<script src="js/repl.js"></script>
