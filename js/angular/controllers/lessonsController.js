@@ -100,7 +100,7 @@ function LessonsController($http, $state, TokenService) {
   };
 
   function gotoLesson(lesson) {
-    $state.go('code', {lesson: lesson});
+    $state.go('code', {lesson: lesson, id: lesson._id});
   };
 
 };

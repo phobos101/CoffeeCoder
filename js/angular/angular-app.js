@@ -27,7 +27,7 @@ function MainConfig($stateProvider, $urlRouterProvider, $httpProvider) {
       templateUrl: 'views/partials/_lessons.html'
     })
     .state('code', {
-      url: '/code/',
+      url: '/code/{id}',
       templateUrl: 'views/partials/_code.html',
       params: {
         lesson: {}

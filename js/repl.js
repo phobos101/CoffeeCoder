@@ -1,5 +1,6 @@
 var codeInput = document.getElementById('codeInput');
 var codeOutput = document.getElementById('codeOutput');
+var results = [];
 
 var myCodeMirror = CodeMirror(codeInput, {
   lineNumbers: true,
@@ -29,6 +30,7 @@ evalCode = function(input) {
                             "]"+(i==input.length-1?"]":",")+"\n":", ");
             } else result += input[i]+(i==input.length-1?"]":", ");
     } else result = input;
+    checkCode(result);
     return result;
 };
 
@@ -36,4 +38,10 @@ writeln = function(input) {
     if (!input == null) input='';
     codeOutput.innerHTML += evalCode(input);
     codeOutput.innerHTML += "<br>";
+};
+
+checkCode = function(result) {
+  if (result) {
+    results.push(result);
+  };
 };
