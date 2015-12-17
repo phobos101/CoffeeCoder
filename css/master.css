@@ -180,14 +180,16 @@ p.copyright {
 }
 
 .code-output {
+  max-height: 100px;
   text-align: center;
+  overflow: scroll;
 }
 
 .lesson-notes {
   padding-top: 10px;
 }
 
-#edit-user, #edit-lesson {
+#edit-user, #edit-lesson, #code-match, #no-code-match {
   display: none;
 }
 

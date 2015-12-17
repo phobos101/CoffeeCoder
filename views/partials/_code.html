@@ -66,6 +66,25 @@
 
 <div class="container" ng-controller="CodeController as code">
 
+  <div class="row" id="code-match">
+    <div class="col-sm-12">
+      <div class="alert alert-success lighter-text alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Aww yeah!</strong> You have successfully completed this lesson.
+        <a ui-sref="lessons" class="alert-link"> Click for more lessons!</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" id="no-code-match">
+    <div class="col-sm-12">
+      <div class="alert alert-danger lighter-text alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Darn!</strong> Not quite, keep at it!
+      </div>
+    </div>
+  </div>
+
   <div class="row">
     <div class="col-sm-6" ng-if="code.lesson.title">
       <div class="text-center">
@@ -89,19 +108,18 @@
 
   <div class="row">
     <div class="col-sm-12">
+      <h4 class="text-center"><a href="#" ng-click="code.checkResults()" onclick="runCode()">Run!</a></h4><br>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
       <div class="panel panel-default">
         <div class="panel-heading text-center">Output</div>
         <div class="panel-body">
           <div id="codeOutput" class="code-output"></div>
         </div>
       </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-sm-12">
-      <br>
-      <h4 class="text-center"><a href="#" onclick="runCode()">Run!</a></h4>
     </div>
   </div>
 
