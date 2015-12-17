@@ -26,6 +26,10 @@ function MainConfig($stateProvider, $urlRouterProvider, $httpProvider) {
       url: '/subbed_lessons',
       templateUrl: 'views/partials/_subbedLessons.html'
     })
+    .state('leaderboard', {
+      url: '/leaderboard',
+      templateUrl: 'views/partials/_leaderboard.html'
+    })
     .state('lessons', {
       url: '/lessons',
       templateUrl: 'views/partials/_lessons.html'

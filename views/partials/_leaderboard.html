@@ -65,22 +65,16 @@
   </div>
 </div>
 
-<div class="container" ng-controller="LessonsController as lessons">
+<div class="container" ng-controller="UserController as users">
 
   <div class="row">
     <div class="col-sm-12">
 
-      <div ng-hide="lessons.subbedLessons[0]">
-        <h1 class="text-center empty">Nothing here!</h1>
-      </div>
-
-      <div class="list-group text-center" ng-repeat='lesson in lessons.subbedLessons'>
-        <a href="#" ng-click="lessons.selectLesson(lesson)" class="list-group-item">
-          <h2>{{lesson.title}}</h2>
-          <p class="lighter-text">{{lesson.summary}}</p>
-          <p>Difficulty: <span class="badge badge-diff-{{lesson.difficulty}}">{{lesson.difficulty}}</span></p>
-          <br><a ng-click="lessons.unsubscribe(lesson)" class='delete'>Unsubscribe</a>
-        </a>
+      <div class="list-group text-center" ng-repeat='user in users.all'>
+        <li class="list-group-item">
+          <h4>{{user.local.email}}</h4>
+          <h4 class="lighter-text"><small>{{user.points}}</small></h4>
+        </li>
       </div>
 
     </div>

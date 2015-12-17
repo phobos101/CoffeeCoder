@@ -7,6 +7,15 @@ function UserController(User, TokenService, $http, $state) {
   var self = this;
   self.userId = TokenService.decodeToken() || undefined;
   self.user = self.user || {};
+  self.all = {};
+
+  (function getUsers() {
+    $http
+      .get('https://coffee-coder-api.herokuapp.com/users')
+      .then(function(res) {
+        self.all = res.data.users;
+      });
+  })();
 
   function handleLogin(res) {
     var token = res.token ? res.token : null;
