@@ -8,6 +8,7 @@ function LessonsController($http, $state, TokenService) {
 
   self.all = [];
   self.createdLessons = [];
+  self.subbedLessons = [];
   self.newLesson = {};
   self.userId = TokenService.decodeToken() || undefined;
   self.user = getUser();
@@ -29,6 +30,11 @@ function LessonsController($http, $state, TokenService) {
                 for (var j in self.user.lessonsCreated) {
                   if (res.data.lessons[i]._id == self.user.lessonsCreated[j]) {
                     self.createdLessons.push(res.data.lessons[i]);
+                  };
+                };
+                for (var n in self.user.lessonsSubbed) {
+                  if (res.data.lessons[i]._id == self.user.lessonsSubbed[n]) {
+                    self.subbedLessons.push(res.data.lessons[i]);
                   };
                 };
               };
@@ -92,6 +98,18 @@ function LessonsController($http, $state, TokenService) {
 
   self.toggleEditForm = function() {
     $('form#edit-lesson').slideToggle('slow');
+  };
+
+  self.unsubscribe = function(lesson) {
+    event.preventDefault();
+    var index = self.subbedLessons.indexOf(lesson);
+    self.subbedLessons.splice(index, 1);
+    var index = self.user.lessonsSubbed.indexOf(lesson._id);
+    self.user.lessonsSubbed.splice(index, 1);
+    $http
+      .put('https://coffee-coder-api.herokuapp.com/users/' + self.userId, self.user)
+      .then(function(res) {
+      });
   };
 
   function selectLesson(lesson) {

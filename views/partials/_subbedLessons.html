@@ -64,68 +64,25 @@
   </div>
 </div>
 
-<div class="container" ng-controller="CodeController as code">
-
-  <div class="row" id="code-match">
-    <div class="col-sm-12">
-      <div class="alert alert-success lighter-text alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <strong>Aww yeah!</strong> You have successfully completed this lesson.
-        <a ui-sref="lessons" class="alert-link"> Click for more lessons!</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="row" id="no-code-match">
-    <div class="col-sm-12">
-      <div class="alert alert-danger lighter-text alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <strong>Darn!</strong> Not quite, keep at it!
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-sm-6" ng-if="code.lesson.title">
-      <div class="text-center">
-        <h3>{{code.lesson.title}}
-          <i class="fa fa-star-o sub-btn" ng-click="code.subscribe()"></i>
-        </h1>
-        <p>Difficulty: <span class="badge badge-diff-{{code.lesson.difficulty}}">{{code.lesson.difficulty}}</span></p><br>
-      </div>
-      <div class="panel panel-default">
-        <div class="panel-heading text-center">
-          {{code.lesson.summary}}
-        </div>
-        <div class="panel-body lighter-text">
-          {{code.lesson.content}}
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <div id="codeInput" class="code-input"></div>
-    </div>
-  </div>
-  <hr>
+<div class="container" ng-controller="LessonsController as lessons">
 
   <div class="row">
     <div class="col-sm-12">
-      <h4 class="text-center"><a href="#" ng-click="code.checkResults()" onclick="runCode()">Run!</a></h4><br>
-    </div>
-  </div>
 
-  <div class="row">
-    <div class="col-sm-12">
-      <div class="panel panel-default">
-        <div class="panel-heading text-center">Output</div>
-        <div class="panel-body">
-          <div id="codeOutput" class="code-output"></div>
-        </div>
+      <div ng-hide="lessons.subbedLessons[0]">
+        <h1 class="text-center empty">Nothing here!</h1>
       </div>
+
+      <div class="list-group text-center" ng-repeat='lesson in lessons.subbedLessons'>
+        <a href="#" ng-click="lessons.selectLesson(lesson)" class="list-group-item">
+          <h2>{{lesson.title}}</h2>
+          <p class="lighter-text">{{lesson.summary}}</p>
+          <p>Difficulty: <span class="badge badge-diff-{{lesson.difficulty}}">{{lesson.difficulty}}</span></p>
+          <br><a ng-click="lessons.unsubscribe(lesson)" class='delete'>Unsubscribe</a>
+        </a>
+      </div>
+
     </div>
   </div>
 
 </div>
-
-<!-- Load REPL -->
-<script src="js/repl.js"></script>
