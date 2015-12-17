@@ -28,7 +28,12 @@ function CodeController($stateParams, $http, $window, TokenService) {
   };
 
   self.subscribe = function() {
-
+    self.user.lessonsSubbed.push(self.lesson._id);
+    $http
+      .put('https://coffee-coder-api.herokuapp.com/users/' + self.user._id, self.user)
+      .then(function(res) {
+        console.log('Subscribed to ' + self.lesson._id);
+      });
   };
 
   self.checkResults = function() {
