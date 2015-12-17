@@ -2,11 +2,12 @@ angular
   .module('CoffeeCoder')
   .controller('CodeController', CodeController);
 
-CodeController.$inject = ['$stateParams', '$http', '$window'];
-function CodeController($stateParams, $http, $window) {
+CodeController.$inject = ['$stateParams', '$http', '$window', 'TokenService'];
+function CodeController($stateParams, $http, $window, TokenService) {
 
   var self = this;
   self.lesson = $stateParams.lesson;
+  self.user = getUser();
 
   if (!self.lesson.title) {
     self.lessonId = $stateParams.id;
@@ -16,6 +17,18 @@ function CodeController($stateParams, $http, $window) {
       .then(function(res) {
         self.lesson = res.data.lesson;
       });
+  };
+
+  function getUser() {
+    $http
+      .get('https://coffee-coder-api.herokuapp.com/users/' + TokenService.decodeToken())
+      .then(function(res) {
+        self.user = res.data.user;
+      });
+  };
+
+  self.subscribe = function() {
+
   };
 
   self.checkResults = function() {
@@ -30,8 +43,25 @@ function CodeController($stateParams, $http, $window) {
   };
 
   self.match = function() {
+    var rewarded = false;
     console.log('match');
     $('#code-match').show('fast');
+    for (var i in self.user.lessonsCompleted) {
+      if (self.lesson._id == self.user.lessonsCompleted[i]) {
+        console.log('already rewarded');
+        rewarded = true;
+      };
+    };
+    if (!rewarded) {
+      console.log('rewarding...');
+      self.user.lessonsCompleted.push(self.lesson._id);
+      self.user.points += 5;
+      $http
+        .put('https://coffee-coder-api.herokuapp.com/users/' + self.user._id, self.user)
+        .then(function(res) {
+          console.log('Reward complete');
+        });
+    };
   };
 
   self.noMatch = function() {
