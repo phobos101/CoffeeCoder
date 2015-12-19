@@ -15,6 +15,7 @@ function LessonsController($http, $state, TokenService) {
   self.selectLesson = selectLesson;
   self.lessonToEdit = {};
   self.gotoLesson = gotoLesson;
+  self.searchText ='';
 
   function getUser() {
     if (self.userId) {
