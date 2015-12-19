@@ -193,6 +193,13 @@ p.copyright {
   white-space: pre-line;
 }
 
+.sortorder:after {
+  content: '\25b2';
+}
+.sortorder.reverse:after {
+  content: '\25bc';
+}
+
 #edit-user, #edit-lesson, #code-match, #no-code-match {
   display: none;
 }

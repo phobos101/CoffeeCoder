@@ -7,7 +7,7 @@ function UserController(User, TokenService, $http, $state) {
   var self = this;
   self.userId = TokenService.decodeToken() || undefined;
   self.user = self.user || {};
-  self.all = {};
+  self.all = [{}];
 
   (function getUsers() {
     $http
