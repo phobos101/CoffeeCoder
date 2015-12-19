@@ -16,8 +16,8 @@ The great thing about CoffeeCoder is th it is community maintained. The goal is 
 Below is a list of things we want to add to CoffeeCoder!
 * Adding a comment section below the output window to provide and see feedback.
 * Rank lessons by number of subscriptions and completions.
-* Sort the leaderboard to reward the most active members of the community.
-* Add a search feature so users can quickly find topics they want to learn.
+* ~~Sort the leaderboard to reward the most active members of the community.~~ Done
+* ~~Add a search feature so users can quickly find topics they want to learn.~~ Done
 * Subscribe to an author so that people can get notified when they add new content.
 
 ##Contributing
