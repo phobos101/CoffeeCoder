@@ -189,6 +189,10 @@ p.copyright {
   padding-top: 10px;
 }
 
+.pre-line {
+  white-space: pre-line;
+}
+
 #edit-user, #edit-lesson, #code-match, #no-code-match {
   display: none;
 }

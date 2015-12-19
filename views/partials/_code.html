@@ -98,8 +98,10 @@
         <div class="panel-heading text-center">
           {{code.lesson.summary}}
         </div>
-        <div class="panel-body lighter-text">
-          {{code.lesson.content}}
+        <div class="panel-body lighter-text pre-line">
+          <p>
+            {{code.lesson.content}}
+          </p>
         </div>
       </div>
     </div>
@@ -119,9 +121,7 @@
     <div class="col-sm-12">
       <div class="panel panel-default">
         <div class="panel-heading text-center">Output</div>
-        <div class="panel-body code-output" id="codeOutput">
-
-        </div>
+        <div class="panel-body code-output" id="codeOutput"></div>
       </div>
     </div>
   </div>
