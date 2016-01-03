@@ -1,4 +1,4 @@
-![alt text](http://i.imgur.com/2OuRSnq.png "CoffeeCoder landing page.")
+![alt text](http://i.imgur.com/dJtp6FC.png "CoffeeCoder landing page.")
 
 ##What is CoffeeCoder
 **CoffeeCoder** is a website for the hacking community to both teach and learn Coffeescript.
