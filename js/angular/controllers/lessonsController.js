@@ -113,6 +113,18 @@ function LessonsController($http, $state, TokenService) {
       });
   };
 
+  self.isLoggedIn = function() {
+    return !!TokenService.getToken();
+  };
+
+  self.showLessons = function() {
+    $http
+      .get('https://coffee-coder-api.herokuapp.com/lessons')
+      .then(function(res) {
+        self.all = res.data.lessons;
+      });
+  };
+
   function selectLesson(lesson) {
     event.preventDefault();
     gotoLesson(lesson);

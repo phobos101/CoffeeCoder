@@ -52,44 +52,85 @@
                 <div class="form-group">
                   <button type="submit" class="btn btn-primary form-control">Login</button>
                 </div>
-                <div class="form-group">
-                  <span class="pull-right"><a href="#">Forgot Password?</a></span>
-                </div>
               </form>
             </li>
           </ul>
         </li>
       </ul>
       <!-- DROPDOWN LOGIN ENDS HERE  -->
+      <!-- DROPDOWN REGISTER STARTS HERE  -->
+      <ul ng-hide="users.isLoggedIn()" id="registerDropdown" class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <button type="button" id="dropdownMenu2" data-toggle="dropdown" class="btn btn-success navbar-btn dropdown-toggle"><i class="glyphicon glyphicon-user"></i> Register
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li style="width: 250px;">
+              <form class="navbar-form form" role="form" ng-submit="users.register()">
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
+                    <input id="emailInput" placeholder="email address" class="form-control" type="email" ng-model="users.user.email" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock color-blue"></i></span>
+                    <input id="passwordInput" placeholder="password" class="form-control" type="password" ng-model="users.user.password" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="btn btn-primary form-control">Register</button>
+                </div>
+              </form>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <!-- DROPDOWN REGISTER ENDS HERE  -->
     </div>
   </div>
 </div>
 
 <div class="container" ng-controller="LessonsController as lessons">
 
-  <div class="row">
-    <div class="col-sm-12">
-      <form class="form-horizontal">
-        <div class="form-group">
-          <div class="col-sm-6 col-sm-offset-3 text-center">
-            <input id="search" type="text" ng-model="lessons.searchText" placeholder="Search..." class="form-control">
+  <div ng-show="lessons.isLoggedIn()">
+    <div class="row">
+      <div class="col-sm-12">
+
+        <form class="form-horizontal">
+          <div class="form-group">
+            <div class="col-sm-6 col-sm-offset-3 text-center">
+              <input id="search" type="text" ng-model="lessons.searchText" placeholder="Search..." class="form-control">
+            </div>
           </div>
+        </form>
+
+        <div class="list-group text-center" ng-repeat="lesson in lessons.all | filter:lessons.searchText | orderBy:lessons.all.difficulty:false">
+          <a href="#" ng-click="lessons.selectLesson(lesson)" class="list-group-item">
+            <h2>{{lesson.title}}</h2>
+            <p class="lighter-text">{{lesson.summary}}</p>
+            <p>Difficulty: <span class="badge badge-diff-{{lesson.difficulty}}">{{lesson.difficulty}}</span></p>
+          </a>
         </div>
-      </form>
 
-      <div ng-hide="lessons.all[0]">
-        <h1 class="text-center empty">You must log in to see lessons!</h1>
+        <div ng-hide="lessons.all[0]">
+          <h1 class="text-center empty">Thanks for logging in!</h1>
+          <form class="form-horizontal" ng-submit="lessons.showLessons()">
+            <div class="form-group">
+              <div class="col-sm-6 col-sm-offset-3 text-center">
+                <button class="btn btn-primary">Show Lessons</button>
+              </div>
+            </div>
+          </form>
+        </div>
+
       </div>
-
-      <div class="list-group text-center" ng-repeat="lesson in lessons.all | filter:lessons.searchText | orderBy:lessons.all.difficulty:false">
-        <a href="#" ng-click="lessons.selectLesson(lesson)" class="list-group-item">
-          <h2>{{lesson.title}}</h2>
-          <p class="lighter-text">{{lesson.summary}}</p>
-          <p>Difficulty: <span class="badge badge-diff-{{lesson.difficulty}}">{{lesson.difficulty}}</span></p>
-        </a>
-      </div>
-
     </div>
+  </div>
+
+  <div ng-hide="lessons.isLoggedIn()">
+    <h1 class="text-center empty">Please log in to see lessons</h1>
   </div>
 
 </div>
