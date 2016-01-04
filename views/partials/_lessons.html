@@ -14,8 +14,8 @@
       <ul class="nav navbar-nav">
         <li class="menu-item"><a ui-sref="lessons">Lessons <i class="fa fa-book"></i></a></li>
         <li class="menu-item"><a ui-sref="code">Practise <i class="fa fa-file-code-o"></i></a></li>
-        <li class="menu-item"><a ui-sref="leaderboard">Leaderboard <i class="fa fa-trophy"></i></a></li>
-        <li class="menu-item"><a>Help <i class="fa fa-support"></i></a></li>
+        <li ng-show="users.isLoggedIn()" class="menu-item"><a ui-sref="leaderboard">Leaderboard <i class="fa fa-trophy"></i></a></li>
+        <li ng-show="users.isLoggedIn()" class="menu-item"><a>Help <i class="fa fa-support"></i></a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li ng-show="users.isLoggedIn()" class="menu-item dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
@@ -76,6 +76,10 @@
           </div>
         </div>
       </form>
+
+      <div ng-hide="lessons.all[0]">
+        <h1 class="text-center empty">You must log in to see lessons!</h1>
+      </div>
 
       <div class="list-group text-center" ng-repeat="lesson in lessons.all | filter:lessons.searchText | orderBy:lessons.all.difficulty:false">
         <a href="#" ng-click="lessons.selectLesson(lesson)" class="list-group-item">

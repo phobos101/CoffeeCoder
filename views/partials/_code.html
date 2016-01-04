@@ -14,8 +14,8 @@
       <ul class="nav navbar-nav">
         <li class="menu-item"><a ui-sref="lessons">Lessons <i class="fa fa-book"></i></a></li>
         <li class="menu-item"><a ui-sref="code">Practise <i class="fa fa-file-code-o"></i></a></li>
-        <li class="menu-item"><a ui-sref="leaderboard">Leaderboard <i class="fa fa-trophy"></i></a></li>
-        <li class="menu-item"><a>Help <i class="fa fa-support"></i></a></li>
+        <li ng-show="users.isLoggedIn()" class="menu-item"><a ui-sref="leaderboard">Leaderboard <i class="fa fa-trophy"></i></a></li>
+        <li ng-show="users.isLoggedIn()" class="menu-item"><a>Help <i class="fa fa-support"></i></a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li ng-show="users.isLoggedIn()" class="menu-item dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
@@ -52,15 +52,42 @@
                 <div class="form-group">
                   <button type="submit" class="btn btn-primary form-control">Login</button>
                 </div>
-                <div class="form-group">
-                  <span class="pull-right"><a href="#">Forgot Password?</a></span>
-                </div>
               </form>
             </li>
           </ul>
         </li>
       </ul>
       <!-- DROPDOWN LOGIN ENDS HERE  -->
+      <!-- DROPDOWN REGISTER STARTS HERE  -->
+      <ul ng-hide="users.isLoggedIn()" id="registerDropdown" class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <button type="button" id="dropdownMenu2" data-toggle="dropdown" class="btn btn-success navbar-btn dropdown-toggle"><i class="glyphicon glyphicon-user"></i> Register
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li style="width: 250px;">
+              <form class="navbar-form form" role="form" ng-submit="users.register()">
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
+                    <input id="emailInput" placeholder="email address" class="form-control" type="email" ng-model="users.user.email" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock color-blue"></i></span>
+                    <input id="passwordInput" placeholder="password" class="form-control" type="password" ng-model="users.user.password" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="btn btn-primary form-control">Register</button>
+                </div>
+              </form>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <!-- DROPDOWN REGISTER ENDS HERE  -->
     </div>
   </div>
 </div>
