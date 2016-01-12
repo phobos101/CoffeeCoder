@@ -25,6 +25,13 @@ function UserController(User, TokenService, $http, $state) {
       self.getUser();
     };
     // console.log(res.message);
+    if (res.message[0] == 'Y') {
+      // login
+      $state.go('profile');
+    } else {
+      // registered
+      $state.go('lessons');
+    }
   };
 
   self.facebookAuth = function() {
@@ -33,16 +40,10 @@ function UserController(User, TokenService, $http, $state) {
 
   self.login = function() {
     User.login(self.user, handleLogin);
-    setTimeout(function() {
-      $state.go('profile');
-    }, 1000);
   };
 
   self.register = function() {
     User.register(self.user, handleLogin);
-    setTimeout(function() {
-      $state.go('lessons');
-    }, 1000);
   };
 
   self.logout = function() {
