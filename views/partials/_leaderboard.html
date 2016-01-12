@@ -97,7 +97,7 @@
   <div class="row">
     <div class="col-sm-12">
 
-      <div class="list-group text-center" ng-repeat="user in users.all | orderBy:users.all.points:true | limitTo:100">
+      <div class="list-group text-center" ng-repeat="user in users.all | orderBy:users.all.points:false | limitTo:100">
         <li class="list-group-item">
           <h4>{{user.local.email}}</h4>
           <h4 class="lighter-text"><small>{{user.points}}</small></h4>

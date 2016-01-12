@@ -24,7 +24,7 @@ function UserController(User, TokenService, $http, $state) {
       self.userId = TokenService.decodeToken();
       self.getUser();
     };
-    self.message = res.message;
+    // console.log(res.message);
   };
 
   self.facebookAuth = function() {
@@ -33,15 +33,21 @@ function UserController(User, TokenService, $http, $state) {
 
   self.login = function() {
     User.login(self.user, handleLogin);
+    setTimeout(function() {
+      $state.go('profile');
+    }, 1000);
   };
 
   self.register = function() {
     User.register(self.user, handleLogin);
+    setTimeout(function() {
+      $state.go('lessons');
+    }, 1000);
   };
 
   self.logout = function() {
     TokenService.removeToken();
-    $state.go('landing');
+    $state.go('code');
     self.user = {};
   };
 

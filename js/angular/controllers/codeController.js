@@ -30,16 +30,23 @@ function CodeController($stateParams, $http, $window, TokenService) {
     var subbed = false;
     for (var i in self.user.lessonsSubbed) {
       if (self.lesson._id == self.user.lessonsSubbed[i]) {
-        console.log('already subbed');
+        // console.log('already subbed');
         subbed = true;
       };
     };
     if (!subbed) {
       self.user.lessonsSubbed.push(self.lesson._id);
+      self.lesson.subs += 1;
+
       $http
         .put('https://coffee-coder-api.herokuapp.com/users/' + self.user._id, self.user)
         .then(function(res) {
-          console.log('Subscribed to ' + self.lesson._id);
+          // console.log('Subscribed to ' + self.lesson._id);
+        });
+      $http
+        .put('https://coffee-coder-api.herokuapp.com/lessons/' + self.lesson._id, self.lesson)
+        .then(function(res) {
+          console.log('res');
         });
     };
   };
@@ -57,7 +64,7 @@ function CodeController($stateParams, $http, $window, TokenService) {
 
   self.match = function() {
     var rewarded = false;
-    console.log('match');
+    // console.log('match');
     $('#code-match').show('fast');
     for (var i in self.user.lessonsCompleted) {
       if (self.lesson._id == self.user.lessonsCompleted[i]) {
