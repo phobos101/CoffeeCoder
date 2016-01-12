@@ -108,6 +108,7 @@
 
         <div class="list-group text-center" ng-repeat="lesson in lessons.all | filter:lessons.searchText | orderBy:lessons.all.difficulty:false">
           <a href="#" ng-click="lessons.selectLesson(lesson)" class="list-group-item">
+            <!-- {{lesson}} -->
             <h2>{{lesson.title}}</h2>
             <p class="lighter-text">{{lesson.summary}}</p>
             <p>Difficulty: <span class="badge badge-diff-{{lesson.difficulty}}">{{lesson.difficulty}}</span></p>

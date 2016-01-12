@@ -7,7 +7,6 @@ function CodeController($stateParams, $http, $window, TokenService) {
 
   var self = this;
   self.lesson = $stateParams.lesson;
-  self.user = getUser();
 
   if (!self.lesson.title) {
     self.lessonId = $stateParams.id;
@@ -19,13 +18,13 @@ function CodeController($stateParams, $http, $window, TokenService) {
       });
   };
 
-  function getUser() {
+  (function getUser() {
     $http
       .get('https://coffee-coder-api.herokuapp.com/users/' + TokenService.decodeToken())
       .then(function(res) {
         self.user = res.data.user;
       });
-  };
+  }());
 
   self.subscribe = function() {
     var subbed = false;

@@ -11,10 +11,7 @@ function LessonsController($http, $state, TokenService) {
   self.subbedLessons = [];
   self.newLesson = {};
   self.userId = TokenService.decodeToken() || undefined;
-  self.user = getUser();
-  self.selectLesson = selectLesson;
   self.lessonToEdit = {};
-  self.gotoLesson = gotoLesson;
   self.searchText = '';
 
   (function getLessons(){
@@ -23,9 +20,9 @@ function LessonsController($http, $state, TokenService) {
       .then(function(res) {
         self.all = res.data.lessons;
       });
-  })();
+  }());
 
-  function getUser() {
+  (function getUser() {
     if (self.userId) {
       $http
         .get('https://coffee-coder-api.herokuapp.com/users/' + self.userId)
@@ -52,7 +49,7 @@ function LessonsController($http, $state, TokenService) {
     } else {
       return false;
     }
-  };
+  }());
 
   self.createLesson = function() {
     $http
@@ -125,12 +122,8 @@ function LessonsController($http, $state, TokenService) {
     return !!TokenService.getToken();
   };
 
-  function selectLesson(lesson) {
+  self.selectLesson = function(lesson) {
     event.preventDefault();
-    gotoLesson(lesson);
-  };
-
-  function gotoLesson(lesson) {
     $state.go('code', {lesson: lesson, id: lesson._id});
   };
 
