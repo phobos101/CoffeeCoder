@@ -44,6 +44,7 @@ function CodeController($stateParams, $http, $window, TokenService) {
           // console.log('Subscribed to ' + self.lesson._id);
         });
       $http
+        //right now only the lesson creator is authorized to send a PUT. 
         .put('https://coffee-coder-api.herokuapp.com/lessons/' + self.lesson._id, self.lesson)
         .then(function(res) {
           console.log('res');
