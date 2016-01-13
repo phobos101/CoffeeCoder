@@ -7,6 +7,7 @@ function CodeController($stateParams, $http, $window, TokenService) {
 
   var self = this;
   self.lesson = $stateParams.lesson;
+  self.subscribed = self.subscribed || 'fa-star-o';
 
   if (!self.lesson.title) {
     self.lessonId = $stateParams.id;
@@ -18,16 +19,21 @@ function CodeController($stateParams, $http, $window, TokenService) {
       });
   };
 
-  (function getUser() {
+  function getUser() {
     $http
       .get('https://coffee-coder-api.herokuapp.com/users/' + TokenService.decodeToken())
       .then(function(res) {
         self.user = res.data.user;
+        self.user.lessonsSubbed.forEach(function(lesson) {
+          if (lesson == self.lesson._id) self.subscribed = 'fa-star';
+        });
       });
-  }());
+  };
+  getUser();
 
   self.subscribe = function() {
     var subbed = false;
+    if (!self.user) getUser();
     for (var i in self.user.lessonsSubbed) {
       if (self.lesson._id == self.user.lessonsSubbed[i]) {
         // console.log('already subbed');
@@ -41,13 +47,13 @@ function CodeController($stateParams, $http, $window, TokenService) {
       $http
         .put('https://coffee-coder-api.herokuapp.com/users/' + self.user._id, self.user)
         .then(function(res) {
-          // console.log('Subscribed to ' + self.lesson._id);
+          $('#subscribed').show('fast');
         });
       $http
-        //right now only the lesson creator is authorized to send a PUT. 
+        //right now only the lesson creator is authorized to send a PUT.
         .put('https://coffee-coder-api.herokuapp.com/lessons/' + self.lesson._id, self.lesson)
         .then(function(res) {
-          console.log('res');
+          console.log(res);
         });
     };
   };

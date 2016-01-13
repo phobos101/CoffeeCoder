@@ -113,15 +113,28 @@
     </div>
   </div>
 
+  <div class="row" id="subscribed">
+    <div class="col-sm-12">
+      <div class="alert alert-success lighter-text alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Woot!</strong> You have subscribed to this lesson.
+      </div>
+    </div>
+  </div>
+
   <div class="row">
-    <div class="col-sm-6" ng-if="code.lesson.title">
+    <div class="col-sm-6 col-sm-offset-3" ng-if="code.lesson.title">
       <div class="text-center">
         <h3>{{code.lesson.title}}
-          <i class="fa fa-star-o sub-btn" ng-click="code.subscribe()"></i>
+          <i class="fa {{code.subscribed}} sub-btn" ng-click="code.subscribe()"></i>
         </h1>
         <p>Difficulty: <span class="badge badge-diff-{{code.lesson.difficulty}}">{{code.lesson.difficulty}}</span></p><br>
       </div>
-      <div class="panel panel-default">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="panel panel-default lesson-info">
         <div class="panel-heading text-center">
           {{code.lesson.summary}}
         </div>

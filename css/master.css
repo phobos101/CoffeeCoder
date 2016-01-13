@@ -195,9 +195,13 @@ p.copyright {
 }
 
 .code-output {
-  max-height: 100px;
+  min-height: 100px;
   text-align: center;
   overflow: scroll;
+}
+
+.lesson-info {
+  min-height: 330px;
 }
 
 .lesson-notes {
@@ -215,7 +219,7 @@ p.copyright {
   content: '\25bc';
 }
 
-#edit-user, #edit-lesson, #code-match, #no-code-match {
+#edit-user, #edit-lesson, #code-match, #no-code-match, #subscribed {
   display: none;
 }
 
